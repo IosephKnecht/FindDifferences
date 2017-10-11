@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CheckPointInfo.cs" />
+    <Compile Include="Data\ImageInfo.cs" />
     <Compile Include="Data\ManagerStrategy.cs" />
+    <Compile Include="Data\SceneInfo.cs" />
+    <Compile Include="Data\SceneManager.cs" />
     <Compile Include="Interfaces\IStrategy.cs" />
     <Compile Include="ManagerView.cs">
       <SubType>Form</SubType>
@@ -64,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -74,6 +79,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\changed1.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

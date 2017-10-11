@@ -15,6 +15,7 @@ namespace FindDifferences.Data
         private System.Windows.Forms.Form view;
         private System.Windows.Forms.PictureBox changedImage;
 
+
         public ManagerStrategy(System.Windows.Forms.Form view,
             System.Windows.Forms.PictureBox changedImage)
         {
@@ -80,7 +81,7 @@ namespace FindDifferences.Data
                 System.Windows.Forms.Label label = new System.Windows.Forms.Label();
 
                 label.Parent = changedImage;
-                label.BackColor = Color.Black;
+                label.BackColor = Color.Transparent;
 
                 label.Location = rect.Location;
                 label.Size = rect.Size;
