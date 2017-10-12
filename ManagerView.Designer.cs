@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerView));
             this.originalImage = new System.Windows.Forms.PictureBox();
             this.changedImage = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.сохранитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
@@ -42,7 +43,6 @@
             // originalImage
             // 
             this.originalImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.originalImage.Image = ((System.Drawing.Image)(resources.GetObject("originalImage.Image")));
             this.originalImage.Location = new System.Drawing.Point(12, 40);
             this.originalImage.Name = "originalImage";
             this.originalImage.Size = new System.Drawing.Size(423, 535);
@@ -53,7 +53,6 @@
             // changedImage
             // 
             this.changedImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.changedImage.Image = ((System.Drawing.Image)(resources.GetObject("changedImage.Image")));
             this.changedImage.Location = new System.Drawing.Point(461, 40);
             this.changedImage.Name = "changedImage";
             this.changedImage.Size = new System.Drawing.Size(415, 535);
@@ -74,16 +73,31 @@
             // 
             // сохранитьСценуToolStripMenuItem
             // 
+            this.сохранитьСценуToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьСценуToolStripMenuItem1,
+            this.сохранитьСценуToolStripMenuItem1});
             this.сохранитьСценуToolStripMenuItem.Name = "сохранитьСценуToolStripMenuItem";
-            this.сохранитьСценуToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.сохранитьСценуToolStripMenuItem.Text = "Сохранить сцену";
-            this.сохранитьСценуToolStripMenuItem.Click += new System.EventHandler(this.сохранитьСценуToolStripMenuItem_Click);
+            this.сохранитьСценуToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.сохранитьСценуToolStripMenuItem.Text = "Сцена";
+            // 
+            // загрузитьСценуToolStripMenuItem1
+            // 
+            this.загрузитьСценуToolStripMenuItem1.Name = "загрузитьСценуToolStripMenuItem1";
+            this.загрузитьСценуToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.загрузитьСценуToolStripMenuItem1.Text = "Загрузить сцену";
+            this.загрузитьСценуToolStripMenuItem1.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click);
+            // 
+            // сохранитьСценуToolStripMenuItem1
+            // 
+            this.сохранитьСценуToolStripMenuItem1.Name = "сохранитьСценуToolStripMenuItem1";
+            this.сохранитьСценуToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.сохранитьСценуToolStripMenuItem1.Text = "Сохранить сцену";
+            this.сохранитьСценуToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьСценуToolStripMenuItem_Click);
             // 
             // загрузитьСценуToolStripMenuItem
             // 
             this.загрузитьСценуToolStripMenuItem.Name = "загрузитьСценуToolStripMenuItem";
-            this.загрузитьСценуToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.загрузитьСценуToolStripMenuItem.Text = "Загрузить сцену";
+            this.загрузитьСценуToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             this.загрузитьСценуToolStripMenuItem.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click);
             // 
             // ManagerView
@@ -114,6 +128,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem1;
     }
 }
 

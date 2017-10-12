@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FindDifferences.Interfaces;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace FindDifferences.Data
 {
@@ -109,6 +110,27 @@ namespace FindDifferences.Data
 
             Rectangle rect = new Rectangle(left, top, (right - left), (bottom - top));
             return rect;
+        }
+
+        public void DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        public void DragDrop(object sender, DragEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            System.Drawing.Bitmap btm = new System.Drawing.Bitmap(files[0]);
+            pb.Image = btm;
+            pb.ImageLocation = files[0];
         }
     }
 }

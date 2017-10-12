@@ -12,14 +12,18 @@ namespace FindDifferences.Data
         private System.Drawing.Size size;
         private string filePath;
         private CheckPointInfo[] checkPoints;
+        private string nameComponent;
+        private System.Drawing.Color backColor;
 
-        public ImageInfo(System.Drawing.Point location, System.Drawing.Size size,
-            string filePath, CheckPointInfo[] checkPoints)
+        public ImageInfo(string nameComponent,System.Drawing.Point location, System.Drawing.Size size,
+            string filePath, CheckPointInfo[] checkPoints, System.Drawing.Color backColor)
         {
             this.location = location;
             this.size = size;
             this.filePath = filePath;
             this.checkPoints = checkPoints;
+            this.nameComponent = nameComponent;
+            this.backColor = backColor;
         }
 
         public System.Drawing.Point Location { get { return location; } }
@@ -29,5 +33,9 @@ namespace FindDifferences.Data
         public string FilePath { get { return filePath; } }
 
         public CheckPointInfo[] CheckPoints { get { return checkPoints; } }
+
+        public string NameComponent { get { return nameComponent; } }
+
+        public System.Drawing.Color BackColor { get { return backColor; } }
     }
 }

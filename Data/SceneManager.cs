@@ -37,11 +37,11 @@ namespace FindDifferences.Data
         public void SaveScene(System.Windows.Forms.PictureBox originalImage,
             System.Windows.Forms.PictureBox changedImage)
         {
-            ImageInfo originalStruct = new ImageInfo(originalImage.Location,
-                originalImage.Size, originalImage.ImageLocation,ControlsToArray(originalImage));
+            ImageInfo originalStruct = new ImageInfo(originalImage.Name,originalImage.Location,
+                originalImage.Size, originalImage.ImageLocation,ControlsToArray(originalImage),originalImage.BackColor);
             
-            ImageInfo changedStruct= new ImageInfo(changedImage.Location,
-                changedImage.Size, changedImage.ImageLocation, ControlsToArray(changedImage));
+            ImageInfo changedStruct= new ImageInfo(changedImage.Name,changedImage.Location,
+                changedImage.Size, changedImage.ImageLocation, ControlsToArray(changedImage),changedImage.BackColor);
 
             scenes.Add(new SceneInfo(originalStruct, changedStruct));
         }
@@ -69,6 +69,12 @@ namespace FindDifferences.Data
             image.Location = info.Location;
             image.Size = info.Size;
             image.ImageLocation = info.FilePath;
+            image.Name = info.NameComponent;
+            image.BackColor = info.BackColor;
+            image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+
+            System.Drawing.Bitmap btm = new System.Drawing.Bitmap(image.ImageLocation);
+            image.Image = btm;
 
             foreach (CheckPointInfo checkPoint in info.CheckPoints)
             {
@@ -76,6 +82,8 @@ namespace FindDifferences.Data
 
                 label.Location = checkPoint.Location;
                 label.Size = checkPoint.Size;
+                label.Name = checkPoint.NameComponent;
+                label.BackColor = System.Drawing.Color.Transparent;
 
                 image.Controls.Add(label);
             }
@@ -102,7 +110,7 @@ namespace FindDifferences.Data
 
             foreach (System.Windows.Forms.Label label in changedImage.Controls)
             {
-                checkPoints.Add(new CheckPointInfo(label.Location,label.Size));
+                checkPoints.Add(new CheckPointInfo(label.Name,label.Location,label.Size));
             }
 
             return checkPoints.ToArray();
