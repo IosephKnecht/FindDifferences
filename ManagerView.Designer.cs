@@ -35,6 +35,9 @@
             this.загрузитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.режимToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.режимИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.режимМенеджераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -64,7 +67,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сохранитьСценуToolStripMenuItem,
-            this.загрузитьСценуToolStripMenuItem});
+            this.загрузитьСценуToolStripMenuItem,
+            this.режимToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(899, 24);
@@ -100,6 +104,29 @@
             this.загрузитьСценуToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             this.загрузитьСценуToolStripMenuItem.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click);
             // 
+            // режимToolStripMenuItem
+            // 
+            this.режимToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.режимИгрыToolStripMenuItem,
+            this.режимМенеджераToolStripMenuItem});
+            this.режимToolStripMenuItem.Name = "режимToolStripMenuItem";
+            this.режимToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.режимToolStripMenuItem.Text = "Режим";
+            // 
+            // режимИгрыToolStripMenuItem
+            // 
+            this.режимИгрыToolStripMenuItem.Name = "режимИгрыToolStripMenuItem";
+            this.режимИгрыToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.режимИгрыToolStripMenuItem.Text = "Режим игры";
+            this.режимИгрыToolStripMenuItem.Click += new System.EventHandler(this.режимИгрыToolStripMenuItem_Click);
+            // 
+            // режимМенеджераToolStripMenuItem
+            // 
+            this.режимМенеджераToolStripMenuItem.Name = "режимМенеджераToolStripMenuItem";
+            this.режимМенеджераToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.режимМенеджераToolStripMenuItem.Text = "Режим менеджера";
+            this.режимМенеджераToolStripMenuItem.Click += new System.EventHandler(this.режимМенеджераToolStripMenuItem_Click);
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +157,9 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem режимToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem режимИгрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem режимМенеджераToolStripMenuItem;
     }
 }
 

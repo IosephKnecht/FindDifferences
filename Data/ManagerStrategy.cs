@@ -98,7 +98,7 @@ namespace FindDifferences.Data
 
         public void Label_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("BRB");
+            //System.Windows.Forms.MessageBox.Show("BRB");
         }
 
         private Rectangle getRectangleForPoints(Point beginPoint, Point endPoint)

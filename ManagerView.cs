@@ -14,7 +14,7 @@ namespace FindDifferences
 {
     public partial class ManagerView : Form
     {
-        private IStrategy mStrategy;
+        private IStrategy strategy;
         private SceneManager sManager;
 
         public ManagerView()
@@ -24,17 +24,17 @@ namespace FindDifferences
             originalImage.AllowDrop = true;
             changedImage.AllowDrop = true;
 
-            mStrategy = new ManagerStrategy(this, changedImage);
-            mStrategy.AddComponent += AddComponent;
-            changedImage.MouseDown += new MouseEventHandler(mStrategy.MouseDown);
-            changedImage.MouseMove += new MouseEventHandler(mStrategy.MouseMove);
-            changedImage.MouseUp += new MouseEventHandler(mStrategy.MouseUp);
+            strategy = new ManagerStrategy(this, changedImage);
+            strategy.AddComponent += AddComponent;
+            changedImage.MouseDown += new MouseEventHandler(strategy.MouseDown);
+            changedImage.MouseMove += new MouseEventHandler(strategy.MouseMove);
+            changedImage.MouseUp += new MouseEventHandler(strategy.MouseUp);
 
-            originalImage.DragEnter += new DragEventHandler(mStrategy.DragEnter);
-            originalImage.DragDrop += new DragEventHandler(mStrategy.DragDrop);
+            originalImage.DragEnter += new DragEventHandler(strategy.DragEnter);
+            originalImage.DragDrop += new DragEventHandler(strategy.DragDrop);
 
-            changedImage.DragEnter += new DragEventHandler(mStrategy.DragEnter);
-            changedImage.DragDrop += new DragEventHandler(mStrategy.DragDrop);
+            changedImage.DragEnter += new DragEventHandler(strategy.DragEnter);
+            changedImage.DragDrop += new DragEventHandler(strategy.DragDrop);
 
             sManager = SceneManager.Instance();
         }
@@ -43,6 +43,9 @@ namespace FindDifferences
         {
             this.Controls.Remove(this.originalImage);
             this.Controls.Remove(this.changedImage);
+
+            this.originalImage = (PictureBox)originalImage;
+            this.changedImage = (PictureBox)changedImage;
 
             SubscribeImage((PictureBox)originalImage, (PictureBox)changedImage);
             SubscribeCheckPoint(((PictureBox)changedImage).Controls);
@@ -94,23 +97,42 @@ namespace FindDifferences
 
         private void SubscribeImage(PictureBox originalImage,PictureBox changedImage)
         {
-            changedImage.MouseDown += new MouseEventHandler(mStrategy.MouseDown);
-            changedImage.MouseMove += new MouseEventHandler(mStrategy.MouseMove);
-            changedImage.MouseUp += new MouseEventHandler(mStrategy.MouseUp);
+            changedImage.MouseDown += new MouseEventHandler(strategy.MouseDown);
+            changedImage.MouseMove += new MouseEventHandler(strategy.MouseMove);
+            changedImage.MouseUp += new MouseEventHandler(strategy.MouseUp);
 
-            originalImage.DragEnter += new DragEventHandler(mStrategy.DragEnter);
-            originalImage.DragDrop += new DragEventHandler(mStrategy.DragDrop);
+            originalImage.DragEnter += new DragEventHandler(strategy.DragEnter);
+            originalImage.DragDrop += new DragEventHandler(strategy.DragDrop);
 
-            changedImage.DragEnter += new DragEventHandler(mStrategy.DragEnter);
-            changedImage.DragDrop += new DragEventHandler(mStrategy.DragDrop);
+            changedImage.DragEnter += new DragEventHandler(strategy.DragEnter);
+            changedImage.DragDrop += new DragEventHandler(strategy.DragDrop);
         }
 
         private void SubscribeCheckPoint(Control.ControlCollection Controls)
         {
             foreach (Label label in Controls)
             {
-                label.Click += new EventHandler(mStrategy.Label_Click);
+                label.Click += new EventHandler(strategy.Label_Click);
             }
+        }
+
+        private void режимИгрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            strategy = new GameStrategy(changedImage);
+            SubscribeCheckPoint(changedImage.Controls);
+
+            сохранитьСценуToolStripMenuItem1.Enabled = false;
+            режимИгрыToolStripMenuItem.Enabled = false;
+
+            режимМенеджераToolStripMenuItem.Enabled = true;
+        }
+
+        private void режимМенеджераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            сохранитьСценуToolStripMenuItem1.Enabled = true;
+            режимИгрыToolStripMenuItem.Enabled = true;
+
+            режимМенеджераToolStripMenuItem.Enabled = false;
         }
     }
 }
