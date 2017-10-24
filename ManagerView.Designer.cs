@@ -28,81 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.originalImage = new System.Windows.Forms.PictureBox();
-            this.changedImage = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.сохранитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.загрузитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьСценуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.загрузитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимМенеджераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
+            this.сценаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changedImage = new System.Windows.Forms.PictureBox();
+            this.originalImage = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // originalImage
-            // 
-            this.originalImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.originalImage.Location = new System.Drawing.Point(12, 40);
-            this.originalImage.Name = "originalImage";
-            this.originalImage.Size = new System.Drawing.Size(423, 535);
-            this.originalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.originalImage.TabIndex = 0;
-            this.originalImage.TabStop = false;
-            // 
-            // changedImage
-            // 
-            this.changedImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.changedImage.Location = new System.Drawing.Point(461, 40);
-            this.changedImage.Name = "changedImage";
-            this.changedImage.Size = new System.Drawing.Size(415, 535);
-            this.changedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.changedImage.TabIndex = 1;
-            this.changedImage.TabStop = false;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сохранитьСценуToolStripMenuItem,
-            this.загрузитьСценуToolStripMenuItem,
-            this.режимToolStripMenuItem});
+            this.режимToolStripMenuItem,
+            this.сценаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(899, 24);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Size = new System.Drawing.Size(610, 24);
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // сохранитьСценуToolStripMenuItem
-            // 
-            this.сохранитьСценуToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.загрузитьСценуToolStripMenuItem1,
-            this.сохранитьСценуToolStripMenuItem1});
-            this.сохранитьСценуToolStripMenuItem.Name = "сохранитьСценуToolStripMenuItem";
-            this.сохранитьСценуToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.сохранитьСценуToolStripMenuItem.Text = "Сцена";
-            // 
-            // загрузитьСценуToolStripMenuItem1
-            // 
-            this.загрузитьСценуToolStripMenuItem1.Name = "загрузитьСценуToolStripMenuItem1";
-            this.загрузитьСценуToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
-            this.загрузитьСценуToolStripMenuItem1.Text = "Загрузить сцену";
-            this.загрузитьСценуToolStripMenuItem1.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click);
-            // 
-            // сохранитьСценуToolStripMenuItem1
-            // 
-            this.сохранитьСценуToolStripMenuItem1.Name = "сохранитьСценуToolStripMenuItem1";
-            this.сохранитьСценуToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
-            this.сохранитьСценуToolStripMenuItem1.Text = "Сохранить сцену";
-            this.сохранитьСценуToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьСценуToolStripMenuItem_Click);
-            // 
-            // загрузитьСценуToolStripMenuItem
-            // 
-            this.загрузитьСценуToolStripMenuItem.Name = "загрузитьСценуToolStripMenuItem";
-            this.загрузитьСценуToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
-            this.загрузитьСценуToolStripMenuItem.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click);
             // 
             // режимToolStripMenuItem
             // 
@@ -118,31 +67,72 @@
             this.режимИгрыToolStripMenuItem.Name = "режимИгрыToolStripMenuItem";
             this.режимИгрыToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.режимИгрыToolStripMenuItem.Text = "Режим игры";
-            this.режимИгрыToolStripMenuItem.Click += new System.EventHandler(this.режимИгрыToolStripMenuItem_Click);
+            this.режимИгрыToolStripMenuItem.Click += new System.EventHandler(this.режимИгрыToolStripMenuItem_Click_1);
             // 
             // режимМенеджераToolStripMenuItem
             // 
             this.режимМенеджераToolStripMenuItem.Name = "режимМенеджераToolStripMenuItem";
             this.режимМенеджераToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.режимМенеджераToolStripMenuItem.Text = "Режим менеджера";
-            this.режимМенеджераToolStripMenuItem.Click += new System.EventHandler(this.режимМенеджераToolStripMenuItem_Click);
+            this.режимМенеджераToolStripMenuItem.Click += new System.EventHandler(this.режимМенеджераToolStripMenuItem_Click_1);
+            // 
+            // сценаToolStripMenuItem
+            // 
+            this.сценаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьСценуToolStripMenuItem,
+            this.сохранитьСценуToolStripMenuItem});
+            this.сценаToolStripMenuItem.Name = "сценаToolStripMenuItem";
+            this.сценаToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.сценаToolStripMenuItem.Text = "Сцена";
+            // 
+            // загрузитьСценуToolStripMenuItem
+            // 
+            this.загрузитьСценуToolStripMenuItem.Name = "загрузитьСценуToolStripMenuItem";
+            this.загрузитьСценуToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.загрузитьСценуToolStripMenuItem.Text = "Загрузить сцену";
+            this.загрузитьСценуToolStripMenuItem.Click += new System.EventHandler(this.загрузитьСценуToolStripMenuItem_Click_1);
+            // 
+            // сохранитьСценуToolStripMenuItem
+            // 
+            this.сохранитьСценуToolStripMenuItem.Name = "сохранитьСценуToolStripMenuItem";
+            this.сохранитьСценуToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.сохранитьСценуToolStripMenuItem.Text = "Сохранить сцену";
+            this.сохранитьСценуToolStripMenuItem.Click += new System.EventHandler(this.сохранитьСценуToolStripMenuItem_Click_1);
+            // 
+            // changedImage
+            // 
+            this.changedImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.changedImage.Location = new System.Drawing.Point(312, 37);
+            this.changedImage.Name = "changedImage";
+            this.changedImage.Size = new System.Drawing.Size(279, 289);
+            this.changedImage.TabIndex = 3;
+            this.changedImage.TabStop = false;
+            // 
+            // originalImage
+            // 
+            this.originalImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.originalImage.Location = new System.Drawing.Point(12, 37);
+            this.originalImage.Name = "originalImage";
+            this.originalImage.Size = new System.Drawing.Size(279, 289);
+            this.originalImage.TabIndex = 2;
+            this.originalImage.TabStop = false;
             // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 586);
+            this.ClientSize = new System.Drawing.Size(610, 342);
             this.Controls.Add(this.changedImage);
             this.Controls.Add(this.originalImage);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManagerView";
-            this.Text = "ManagerView";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.ManagerView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changedImage)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.changedImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,16 +140,15 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox originalImage;
-        private System.Windows.Forms.PictureBox changedImage;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem режимToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem режимИгрыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem режимМенеджераToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сценаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьСценуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem;
+        private System.Windows.Forms.PictureBox changedImage;
+        private System.Windows.Forms.PictureBox originalImage;
     }
 }
 

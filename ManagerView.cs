@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using FindDifferences.Interfaces;
 using FindDifferences.Data;
-using System.IO;
 
 namespace FindDifferences
 {
@@ -61,33 +61,14 @@ namespace FindDifferences
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            //System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+            //    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-            using (Stream fStream = new FileStream("user.dat",
-                 FileMode.Open))
-            {
-                sManager = (SceneManager)binFormat.Deserialize(fStream);
-            }
-        }
-
-        private void сохранитьСценуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sManager.SaveScene(originalImage, changedImage);
-
-            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            using (Stream fStream = new FileStream("user.dat",
-                 FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                binFormat.Serialize(fStream, sManager);
-            }
-        }
-
-        private void загрузитьСценуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sManager.recoverScene += recoverScene;
-            sManager.LoadScene(0);
+            //using (Stream fStream = new FileStream("user.dat",
+            //     FileMode.Open))
+            //{
+            //    sManager = (SceneManager)binFormat.Deserialize(fStream);
+            //}
         }
 
         private void новаяСценаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,7 +76,7 @@ namespace FindDifferences
 
         }
 
-        private void SubscribeImage(PictureBox originalImage,PictureBox changedImage)
+        private void SubscribeImage(PictureBox originalImage, PictureBox changedImage)
         {
             changedImage.MouseDown += new MouseEventHandler(strategy.MouseDown);
             changedImage.MouseMove += new MouseEventHandler(strategy.MouseMove);
@@ -116,23 +97,42 @@ namespace FindDifferences
             }
         }
 
-        private void режимИгрыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void режимИгрыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             strategy = new GameStrategy(changedImage);
             SubscribeCheckPoint(changedImage.Controls);
 
-            сохранитьСценуToolStripMenuItem1.Enabled = false;
+            сохранитьСценуToolStripMenuItem.Enabled = false;
             режимИгрыToolStripMenuItem.Enabled = false;
 
             режимМенеджераToolStripMenuItem.Enabled = true;
         }
 
-        private void режимМенеджераToolStripMenuItem_Click(object sender, EventArgs e)
+        private void режимМенеджераToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            сохранитьСценуToolStripMenuItem1.Enabled = true;
+            сохранитьСценуToolStripMenuItem.Enabled = true;
             режимИгрыToolStripMenuItem.Enabled = true;
 
             режимМенеджераToolStripMenuItem.Enabled = false;
+        }
+
+        private void загрузитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            sManager.recoverScene += recoverScene;
+            sManager.LoadScene(0);
+        }
+
+        private void сохранитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            sManager.SaveScene(originalImage, changedImage);
+
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            using (Stream fStream = new FileStream("user.dat",
+                 FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                binFormat.Serialize(fStream, sManager);
+            }
         }
     }
 }
