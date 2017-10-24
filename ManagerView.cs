@@ -21,22 +21,9 @@ namespace FindDifferences
         {
             InitializeComponent();
 
-            originalImage.AllowDrop = true;
-            changedImage.AllowDrop = true;
-
-            strategy = new ManagerStrategy(this, changedImage);
-            strategy.AddComponent += AddComponent;
-            changedImage.MouseDown += new MouseEventHandler(strategy.MouseDown);
-            changedImage.MouseMove += new MouseEventHandler(strategy.MouseMove);
-            changedImage.MouseUp += new MouseEventHandler(strategy.MouseUp);
-
-            originalImage.DragEnter += new DragEventHandler(strategy.DragEnter);
-            originalImage.DragDrop += new DragEventHandler(strategy.DragDrop);
-
-            changedImage.DragEnter += new DragEventHandler(strategy.DragEnter);
-            changedImage.DragDrop += new DragEventHandler(strategy.DragDrop);
-
             sManager = SceneManager.Instance();
+
+            режимИгрыToolStripMenuItem_Click_1(this.menuStrip1, new EventArgs());
         }
 
         private void recoverScene(object originalImage, object changedImage)
@@ -47,11 +34,13 @@ namespace FindDifferences
             this.originalImage = (PictureBox)originalImage;
             this.changedImage = (PictureBox)changedImage;
 
-            SubscribeImage((PictureBox)originalImage, (PictureBox)changedImage);
+            //SubscribeImage((PictureBox)originalImage, (PictureBox)changedImage);
             SubscribeCheckPoint(((PictureBox)changedImage).Controls);
 
             this.Controls.Add((PictureBox)originalImage);
             this.Controls.Add((PictureBox)changedImage);
+
+            strategy.UpdateLinkChangedImage = this.changedImage;
         }
 
         private void AddComponent(object label)
@@ -61,14 +50,14 @@ namespace FindDifferences
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-            //System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-            //    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-            //using (Stream fStream = new FileStream("user.dat",
-            //     FileMode.Open))
-            //{
-            //    sManager = (SceneManager)binFormat.Deserialize(fStream);
-            //}
+            using (Stream fStream = new FileStream("user.dat",
+                 FileMode.Open))
+            {
+                sManager = (SceneManager)binFormat.Deserialize(fStream);
+            }
         }
 
         private void новаяСценаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,6 +67,8 @@ namespace FindDifferences
 
         private void SubscribeImage(PictureBox originalImage, PictureBox changedImage)
         {
+            strategy.AddComponent += AddComponent;
+
             changedImage.MouseDown += new MouseEventHandler(strategy.MouseDown);
             changedImage.MouseMove += new MouseEventHandler(strategy.MouseMove);
             changedImage.MouseUp += new MouseEventHandler(strategy.MouseUp);
@@ -100,20 +91,31 @@ namespace FindDifferences
         private void режимИгрыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             strategy = new GameStrategy(changedImage);
+
             SubscribeCheckPoint(changedImage.Controls);
 
             сохранитьСценуToolStripMenuItem.Enabled = false;
             режимИгрыToolStripMenuItem.Enabled = false;
 
             режимМенеджераToolStripMenuItem.Enabled = true;
+
+            originalImage.AllowDrop = false;
+            changedImage.AllowDrop = false;
         }
 
         private void режимМенеджераToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            strategy = new ManagerStrategy(this, changedImage);
+
+            SubscribeImage(this.originalImage, this.changedImage);
+
             сохранитьСценуToolStripMenuItem.Enabled = true;
             режимИгрыToolStripMenuItem.Enabled = true;
 
             режимМенеджераToolStripMenuItem.Enabled = false;
+
+            originalImage.AllowDrop = true;
+            changedImage.AllowDrop = true;
         }
 
         private void загрузитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)

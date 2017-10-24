@@ -49,7 +49,7 @@
             this.сценаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(610, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(898, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,18 +102,20 @@
             // changedImage
             // 
             this.changedImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.changedImage.Location = new System.Drawing.Point(312, 37);
+            this.changedImage.Location = new System.Drawing.Point(451, 34);
             this.changedImage.Name = "changedImage";
-            this.changedImage.Size = new System.Drawing.Size(279, 289);
+            this.changedImage.Size = new System.Drawing.Size(423, 535);
+            this.changedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.changedImage.TabIndex = 3;
             this.changedImage.TabStop = false;
             // 
             // originalImage
             // 
             this.originalImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.originalImage.Location = new System.Drawing.Point(12, 37);
+            this.originalImage.Location = new System.Drawing.Point(12, 34);
             this.originalImage.Name = "originalImage";
-            this.originalImage.Size = new System.Drawing.Size(279, 289);
+            this.originalImage.Size = new System.Drawing.Size(423, 535);
+            this.originalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.originalImage.TabIndex = 2;
             this.originalImage.TabStop = false;
             // 
@@ -121,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 342);
+            this.ClientSize = new System.Drawing.Size(898, 581);
             this.Controls.Add(this.changedImage);
             this.Controls.Add(this.originalImage);
             this.Controls.Add(this.menuStrip1);

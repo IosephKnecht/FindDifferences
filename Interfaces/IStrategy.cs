@@ -14,5 +14,6 @@ namespace FindDifferences.Interfaces
         void DragEnter(object sender, System.Windows.Forms.DragEventArgs e);
         void DragDrop(object sender, System.Windows.Forms.DragEventArgs e);
         event Action<object> AddComponent;
+        System.Windows.Forms.PictureBox UpdateLinkChangedImage { set; }
     }
 }

@@ -24,6 +24,8 @@ namespace FindDifferences.Data
             this.changedImage = changedImage;
         }
 
+        public PictureBox UpdateLinkChangedImage { set { this.changedImage = value; } }
+
         public event Action<object> AddComponent;
 
         public void MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)

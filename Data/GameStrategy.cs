@@ -19,6 +19,8 @@ namespace FindDifferences.Data
             this.changedImage = changedImage;
         }
 
+        public PictureBox UpdateLinkChangedImage { set { this.changedImage = value; } }
+
         public event Action<object> AddComponent;
 
         public void DragDrop(object sender, DragEventArgs e)

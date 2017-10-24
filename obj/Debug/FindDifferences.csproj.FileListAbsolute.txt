@@ -6,3 +6,11 @@ c:\users\dadya_fedar\documents\visual studio 2017\Projects\FindDifferences\FindD
 c:\users\dadya_fedar\documents\visual studio 2017\Projects\FindDifferences\FindDifferences\obj\Debug\FindDifferences.csproj.GenerateResource.Cache
 c:\users\dadya_fedar\documents\visual studio 2017\Projects\FindDifferences\FindDifferences\obj\Debug\FindDifferences.exe
 c:\users\dadya_fedar\documents\visual studio 2017\Projects\FindDifferences\FindDifferences\obj\Debug\FindDifferences.pdb
+C:\Users\dadya_fedar\Desktop\FindDifferences\bin\Debug\FindDifferences.exe
+C:\Users\dadya_fedar\Desktop\FindDifferences\bin\Debug\FindDifferences.pdb
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.csprojResolveAssemblyReference.cache
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.ManagerView.resources
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.Properties.Resources.resources
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.csproj.GenerateResource.Cache
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.exe
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.pdb
