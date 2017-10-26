@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 namespace FindDifferences.Data
 {
+    public delegate void AddLabelDelegate(Rectangle rect);
+
     class ManagerStrategy : IStrategy
     {
         private Point start = Point.Empty;
@@ -81,21 +83,27 @@ namespace FindDifferences.Data
                     System.Windows.Forms.ControlPaint.DrawReversibleFrame(getRectangleForPoints(p1, p2), Color.Black, System.Windows.Forms.FrameStyle.Dashed);
                 }
 
-                System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-
-                label.Parent = changedImage;
-                label.BackColor = Color.Transparent;
-
-                label.Location = rect.Location;
-                label.Size = rect.Size;
-
-                label.Click += Label_Click;
-
-                AddComponent(label);
+                FindDifferences.SpecialForm.AddCheckPointForm addForm = new SpecialForm.AddCheckPointForm(new AddLabelDelegate(AddLabel), rect);
+                addForm.ShowDialog();
             }
 
             start = Point.Empty;
             end = Point.Empty;
+        }
+
+        private void AddLabel(Rectangle rect)
+        {
+            Label label = new Label();
+
+            label.Parent = changedImage;
+            label.BackColor = Color.Transparent;
+
+            label.Location = rect.Location;
+            label.Size = rect.Size;
+
+            label.Click += Label_Click;
+
+            AddComponent(label);
         }
 
         public void Label_Click(object sender, EventArgs e)

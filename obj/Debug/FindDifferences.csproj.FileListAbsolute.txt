@@ -14,3 +14,5 @@ C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.Propertie
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.csproj.GenerateResource.Cache
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.exe
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.pdb
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.SpecialForm.LoadForm.resources
+C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.SpecialForm.AddCheckPointForm.resources

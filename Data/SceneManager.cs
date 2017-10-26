@@ -27,6 +27,13 @@ namespace FindDifferences.Data
             return sManager;
         }
 
+        public static void SM(SceneManager desManager)
+        {
+            sManager = desManager;
+        }
+
+        public List<SceneInfo> Scenes { get { return scenes; } }
+
         public SceneInfo ChangeScene(int numScene)
         {
             deleteScene();

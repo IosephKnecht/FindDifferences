@@ -12,6 +12,8 @@ using FindDifferences.Data;
 
 namespace FindDifferences
 {
+    public delegate void RecoverScene(object originalImage, object changedImage); 
+
     public partial class ManagerView : Form
     {
         private IStrategy strategy;
@@ -50,13 +52,21 @@ namespace FindDifferences
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
-            using (Stream fStream = new FileStream("user.dat",
-                 FileMode.Open))
+            try
             {
-                sManager = (SceneManager)binFormat.Deserialize(fStream);
+                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                using (Stream fStream = new FileStream("user.dat",
+                     FileMode.Open))
+                {
+                    sManager = (SceneManager)binFormat.Deserialize(fStream);
+                    SceneManager.SM(sManager);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл сохранений не найден или же он пуст...");
             }
         }
 
@@ -120,8 +130,8 @@ namespace FindDifferences
 
         private void загрузитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            sManager.recoverScene += recoverScene;
-            sManager.LoadScene(0);
+            SpecialForm.LoadForm lf = new SpecialForm.LoadForm(new RecoverScene(recoverScene));
+            lf.ShowDialog();
         }
 
         private void сохранитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)

@@ -61,6 +61,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecialForm\AddCheckPointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecialForm\AddCheckPointForm.Designer.cs">
+      <DependentUpon>AddCheckPointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialForm\LoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecialForm\LoadForm.Designer.cs">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ManagerView.resx">
       <DependentUpon>ManagerView.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +85,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SpecialForm\AddCheckPointForm.resx">
+      <DependentUpon>AddCheckPointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecialForm\LoadForm.resx">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
