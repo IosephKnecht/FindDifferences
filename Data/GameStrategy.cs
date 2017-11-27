@@ -19,6 +19,9 @@ namespace FindDifferences.Data
             this.changedImage = changedImage;
         }
 
+        /// <summary>
+        /// Костыль на обновление ссылки на changedImage...
+        /// </summary>
         public PictureBox UpdateLinkChangedImage { set { this.changedImage = value; } }
 
         public event Action<object> AddComponent;
@@ -33,6 +36,12 @@ namespace FindDifferences.Data
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Реализация логики нажатия на чекпоинт игроком(проигрывание звучка,смена цвета,
+        /// удаление из Control'a компонента)...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Label_Click(object sender, EventArgs e)
         {
             Label label = (Label)sender;

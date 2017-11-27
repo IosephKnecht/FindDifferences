@@ -12,7 +12,14 @@ namespace FindDifferences.SpecialForm
 {
     public partial class LoadForm : Form
     {
+        /// <summary>
+        /// Экземпляр класса хранящего сцены...
+        /// </summary>
         SceneManager s_manager;
+
+        /// <summary>
+        /// Делегат ссылающийся на ManagerStrategy...
+        /// </summary>
         RecoverScene rec;
 
         public LoadForm(RecoverScene rec)
@@ -25,6 +32,11 @@ namespace FindDifferences.SpecialForm
             LoadList();
         }
 
+        /// <summary>
+        /// Вспомогательный метод добывающий из объекта изображения и транслирующий
+        /// их на наши picterBox'ы...
+        /// </summary>
+        /// <param name="index">Индекс выбранной картинки...</param>
         private void LoadImage(int index)
         {
             SceneInfo inf = (SceneInfo)comboBox1.Items[index];
@@ -36,6 +48,9 @@ namespace FindDifferences.SpecialForm
             changedImage.Image = btm2;
         }
 
+        /// <summary>
+        /// Вспомогательный метод,добавляющий все имена сцен в комбобокс...
+        /// </summary>
         private void LoadList()
         {
             foreach (SceneInfo inf in s_manager.Scenes)
@@ -44,6 +59,11 @@ namespace FindDifferences.SpecialForm
             }
         }
 
+        /// <summary>
+        /// Запускает логику отображения миниатюр на форме...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -51,6 +71,12 @@ namespace FindDifferences.SpecialForm
             LoadImage(cb.SelectedIndex);
         }
 
+        /// <summary>
+        /// Подписывается на событие восстановления сцены(в SceneManager)
+        /// и запускает LoadScene...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             s_manager.recoverScene += new Action<object, object>(rec);

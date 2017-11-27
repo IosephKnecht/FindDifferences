@@ -10,12 +10,27 @@ namespace FindDifferences.Data
 {
     public delegate void AddLabelDelegate(Rectangle rect);
 
+    /// <summary>
+    /// Вариант стратегии для менеджера...
+    /// </summary>
     class ManagerStrategy : IStrategy
     {
+        /// <summary>
+        /// Начальное положение нашего курсора...
+        /// </summary>
         private Point start = Point.Empty;
+        /// <summary>
+        /// Конечное положение нашего курсора...
+        /// </summary>
         private Point end = Point.Empty;
 
+        /// <summary>
+        /// Скажем нет инкапсуляции...
+        /// </summary>
         private System.Windows.Forms.Form view;
+        /// <summary>
+        /// И еще раз нет инкапсуляции...
+        /// </summary>
         private System.Windows.Forms.PictureBox changedImage;
 
 
@@ -26,10 +41,21 @@ namespace FindDifferences.Data
             this.changedImage = changedImage;
         }
 
+        /// <summary>
+        /// Костыль на обновление ссылки на changedImage...
+        /// </summary>
         public PictureBox UpdateLinkChangedImage { set { this.changedImage = value; } }
 
+        /// <summary>
+        /// Событие на добавление компонента в форму...
+        /// </summary>
         public event Action<object> AddComponent;
 
+        /// <summary>
+        /// Метод фиксирующий начальное положение нашего курсора...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if ((e.Button & System.Windows.Forms.MouseButtons.Left) != 0)
@@ -39,7 +65,11 @@ namespace FindDifferences.Data
             }
         }
 
-
+        /// <summary>
+        /// Метод перестраивающий конечную точку нашего курсора по его перетаскиванию...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             Point p1;
@@ -66,6 +96,12 @@ namespace FindDifferences.Data
             }
         }
 
+        /// <summary>
+        /// При отпускании клавиши,если есть команда AddCheckPointForm строим
+        /// Rectangle и рисуем по нему DrawReversibleFrame...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             Point p1;
@@ -91,6 +127,10 @@ namespace FindDifferences.Data
             end = Point.Empty;
         }
 
+        /// <summary>
+        /// Метод реализующий добавление построенного чекпоинта...
+        /// </summary>
+        /// <param name="rect"></param>
         private void AddLabel(Rectangle rect)
         {
             Label label = new Label();
@@ -111,6 +151,12 @@ namespace FindDifferences.Data
             //System.Windows.Forms.MessageBox.Show("BRB");
         }
 
+        /// <summary>
+        /// Хитрый мат.метод по расчету характеристик Rectangle...
+        /// </summary>
+        /// <param name="beginPoint"></param>
+        /// <param name="endPoint"></param>
+        /// <returns></returns>
         private Rectangle getRectangleForPoints(Point beginPoint, Point endPoint)
         {
             int top = beginPoint.Y < endPoint.Y ? beginPoint.Y : endPoint.Y;
@@ -122,6 +168,11 @@ namespace FindDifferences.Data
             return rect;
         }
 
+        /// <summary>
+        /// По фокусе реализует соответствующую стратегию взаимодействия с объектом(картинкой)...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -133,6 +184,12 @@ namespace FindDifferences.Data
                 e.Effect = DragDropEffects.None;
             }
         }
+        /// <summary>
+        /// Если мы навели на pictureBox картинку и отпустили,то мы идем загружать ее
+        /// в наш pictureBox...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         public void DragDrop(object sender, DragEventArgs e)
         {
