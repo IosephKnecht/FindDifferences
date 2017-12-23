@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using FindDifferences.Interfaces;
+using System.Threading;
 
 
 namespace FindDifferences.Data
@@ -49,17 +50,16 @@ namespace FindDifferences.Data
         public void Label_Click(object sender, EventArgs e)
         {
             Label label = (Label)sender;
-            System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
 
+            System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
             player.Open(new Uri(Directory.GetCurrentDirectory() + @"/Sounds" + @"/Click.wav"));
             player.Play();
 
             label.BackColor = System.Drawing.Color.Green;
-            System.Windows.Forms.MessageBox.Show("BRB");
-            changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
+            //System.Windows.Forms.MessageBox.Show("BRB");
+            //changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
             gameController.findDifference();
 
-            player.Close();
         }
 
         public void MouseDown(object sender, MouseEventArgs e)
