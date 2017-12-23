@@ -13,6 +13,8 @@ namespace FindDifferences.Data
         /// </summary>
         private List<SceneInfo> scenes;
 
+        private int current_scene;
+
         /// <summary>
         /// Вообще не знаю вызывается ли он...Но должен удалять сцену...
         /// </summary>
@@ -57,6 +59,8 @@ namespace FindDifferences.Data
         /// </summary>
         public List<SceneInfo> Scenes { get { return scenes; } }
 
+        public int Current_Scene { get { return current_scene; } }
+
         /// <summary>
         /// Не помню используется ли вообще...
         /// Реализует логику удаления сцены и возврат новой по индексу...
@@ -68,6 +72,11 @@ namespace FindDifferences.Data
             deleteScene();
 
             return scenes[numScene];
+        }
+
+        public SceneInfo getCurrentScene()
+        {
+            return scenes[current_scene];
         }
 
         /// <summary>
@@ -106,6 +115,8 @@ namespace FindDifferences.Data
                 RecoverImage(ref changedImage, scene.ChangedImage);
 
                 recoverScene(originalImage, changedImage);
+
+                current_scene = numScene;
             }
         }
 

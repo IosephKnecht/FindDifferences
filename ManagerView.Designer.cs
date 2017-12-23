@@ -37,6 +37,7 @@
             this.сохранитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changedImage = new System.Windows.Forms.PictureBox();
             this.originalImage = new System.Windows.Forms.PictureBox();
+            this.стартToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
@@ -56,6 +57,7 @@
             // режимToolStripMenuItem
             // 
             this.режимToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.стартToolStripMenuItem,
             this.режимИгрыToolStripMenuItem,
             this.режимМенеджераToolStripMenuItem});
             this.режимToolStripMenuItem.Name = "режимToolStripMenuItem";
@@ -119,6 +121,13 @@
             this.originalImage.TabIndex = 2;
             this.originalImage.TabStop = false;
             // 
+            // стартToolStripMenuItem
+            // 
+            this.стартToolStripMenuItem.Name = "стартToolStripMenuItem";
+            this.стартToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.стартToolStripMenuItem.Text = "Старт";
+            this.стартToolStripMenuItem.Click += new System.EventHandler(this.стартToolStripMenuItem_Click_1);
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +160,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьСценуToolStripMenuItem;
         private System.Windows.Forms.PictureBox changedImage;
         private System.Windows.Forms.PictureBox originalImage;
+        private System.Windows.Forms.ToolStripMenuItem стартToolStripMenuItem;
     }
 }
 

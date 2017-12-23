@@ -14,10 +14,14 @@ namespace FindDifferences.Data
 
         private System.Windows.Forms.PictureBox changedImage;
 
+        private GameController gameController;
+
         public GameStrategy(System.Windows.Forms.PictureBox changedImage)
         {
             this.changedImage = changedImage;
         }
+
+        public GameController setGameController { set { this.gameController = value; } }
 
         /// <summary>
         /// Костыль на обновление ссылки на changedImage...
@@ -53,6 +57,7 @@ namespace FindDifferences.Data
             label.BackColor = System.Drawing.Color.Green;
             System.Windows.Forms.MessageBox.Show("BRB");
             changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
+            gameController.findDifference();
 
             player.Close();
         }

@@ -28,6 +28,10 @@ namespace FindDifferences
         /// </summary>
         private SceneManager sManager;
 
+        private GameController gameController;
+
+        private string nameForm;
+
         public ManagerView()
         {
             InitializeComponent();
@@ -91,6 +95,8 @@ namespace FindDifferences
             {
                 MessageBox.Show("Файл сохранений не найден или же он пуст...");
             }
+
+            nameForm = this.Text;
         }
 
         private void новаяСценаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,6 +154,9 @@ namespace FindDifferences
 
             originalImage.AllowDrop = false;
             changedImage.AllowDrop = false;
+
+            originalImage.Enabled = false;
+            changedImage.Enabled = false;
         }
 
         /// <summary>
@@ -168,6 +177,9 @@ namespace FindDifferences
 
             originalImage.AllowDrop = true;
             changedImage.AllowDrop = true;
+
+            originalImage.Enabled = true;
+            changedImage.Enabled = true;
         }
 
         /// <summary>
@@ -197,6 +209,40 @@ namespace FindDifferences
             {
                 binFormat.Serialize(fStream, sManager);
             }
+        }
+
+        private void Tick(object sender,EventArgs e)
+        {
+            this.Text = nameForm +" Осталось времени:"+
+                gameController.getTime+ " Осталось найти различий: "+ gameController.getPointCounter;
+        }
+
+        private void стартToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gameController = new GameController(this.Tick);
+        }
+
+        private void стартToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (SceneManager.Instance().Current_Scene >= 0&&
+                originalImage.Image!=null&&changedImage.Image!=null)
+            {
+                gameController = new GameController(this.Tick);
+                gameController.timerOff += GameController_timerOff;
+
+                ((GameStrategy)strategy).setGameController = gameController;
+
+                стартToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Сцена не загружена");
+            }
+        }
+
+        private void GameController_timerOff()
+        {
+            стартToolStripMenuItem.Enabled = true;
         }
     }
 }

@@ -16,3 +16,13 @@ C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.exe
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.pdb
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.SpecialForm.LoadForm.resources
 C:\Users\dadya_fedar\Desktop\FindDifferences\obj\Debug\FindDifferences.SpecialForm.AddCheckPointForm.resources
+D:\FindDifferences\bin\Debug\FindDifferences.exe
+D:\FindDifferences\bin\Debug\FindDifferences.pdb
+D:\FindDifferences\obj\Debug\FindDifferences.csprojResolveAssemblyReference.cache
+D:\FindDifferences\obj\Debug\FindDifferences.ManagerView.resources
+D:\FindDifferences\obj\Debug\FindDifferences.Properties.Resources.resources
+D:\FindDifferences\obj\Debug\FindDifferences.SpecialForm.AddCheckPointForm.resources
+D:\FindDifferences\obj\Debug\FindDifferences.SpecialForm.LoadForm.resources
+D:\FindDifferences\obj\Debug\FindDifferences.csproj.GenerateResource.Cache
+D:\FindDifferences\obj\Debug\FindDifferences.exe
+D:\FindDifferences\obj\Debug\FindDifferences.pdb
