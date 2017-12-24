@@ -220,11 +220,22 @@ namespace FindDifferences
             }
         }
 
+        private void updateRecord()
+        {
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            using (Stream fStream = new FileStream("user.dat",
+                 FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                binFormat.Serialize(fStream, SceneManager.Instance());
+            }
+        }
+
         private void Tick(object sender,EventArgs e)
         {
             this.Text = nameForm +" Осталось времени:"+
                 gameController.getTime+ " Осталось найти различий: "+ gameController.getPointCounter
-                + " Счет: "+ gameController.getScore;
+                + " Счет: "+ gameController.getScore +" Рекорд: "+ SceneManager.Instance().getCurrentScene().getBestScore;
         }
 
         private void стартToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,6 +267,21 @@ namespace FindDifferences
         private void GameController_timerOff()
         {
             стартToolStripMenuItem.Enabled = true;
+            if(gameController.getNewRecord&&gameController.getResultSession)
+            {
+                MessageBox.Show("Аве,чемпиону! Ты установил новый рекорд: " +
+                    gameController.getScore);
+                Invoke(new Action(updateRecord));
+            }
+            else
+            {
+                if (gameController.getResultSession)
+                    MessageBox.Show("Аве,победителю!");
+                else
+                {
+                    MessageBox.Show("Возможно,для Вас это пока слишком сложная игра.");
+                }
+            }
         }
 
         private void ManagerView_Activated(object sender, EventArgs e)

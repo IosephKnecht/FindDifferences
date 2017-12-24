@@ -16,6 +16,8 @@ namespace FindDifferences.Data
         /// </summary>
         private ImageInfo originalImage, changedImage;
 
+        private double bestScore=0;
+
         /// <summary>
         /// Количество чекпоинтов в сцене...
         /// </summary>
@@ -49,5 +51,9 @@ namespace FindDifferences.Data
         /// Геттер на возврат количества чепоинтов в сцене...
         /// </summary>
         public int Point_Count { get { return point_count; } }
+
+        public double getBestScore { get { return bestScore; } }
+
+        public double setBestScore { set { bestScore=value; } }
     }
 }

@@ -13,7 +13,7 @@ namespace FindDifferences.Data
     /// 
     class GameController
     {
-        private int score;
+        private double score;
 
         private Timer timer;
 
@@ -21,13 +21,20 @@ namespace FindDifferences.Data
 
         public event Action timerOff;
 
+        private bool newRecord = false;
+
+        private bool resultSession = false;
+
         private int point_counter;
+
+        private readonly int cnst;
 
         public GameController(Tick new_tick)
         {
             timer = new Timer();
             timer.Tick += new EventHandler(new_tick);
             this.time = 60;
+            this.cnst = time;
             timer.Interval = 1000;
             point_counter = SceneManager.Instance().getCurrentScene().Point_Count;
             timer.Enabled = true;
@@ -39,12 +46,15 @@ namespace FindDifferences.Data
         {
             get
             {
-                time -= 1;
-                if (time > 0) return time;
+                if (time > 0)
+                {
+                    return time--;
+                }
                 else
                 {
                     timer.Enabled = false;
                     timerOff();
+                    if (point_counter == 0) resultSession = true;
                     return time = 0;
                 }
             }
@@ -53,17 +63,27 @@ namespace FindDifferences.Data
         public void findDifference(int value)
         {
             point_counter--;
-            score += value;
+            score += value* time/(double)cnst;
             if (point_counter == 0)
             {
                 timer.Enabled = false;
+                resultSession = true;
+                if (score > SceneManager.Instance().getCurrentScene().getBestScore)
+                {
+                    SceneManager.Instance().getCurrentScene().setBestScore = score;
+                    newRecord = true;
+                }
                 timerOff();
             }
         }
 
-        public int getScore
+        public double getScore
         {
             get { return score; }
         }
+
+        public bool getResultSession { get { return resultSession; } }
+
+        public bool getNewRecord { get { return newRecord; } }
     }
 }
