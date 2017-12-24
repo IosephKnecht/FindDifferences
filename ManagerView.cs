@@ -223,7 +223,8 @@ namespace FindDifferences
         private void Tick(object sender,EventArgs e)
         {
             this.Text = nameForm +" Осталось времени:"+
-                gameController.getTime+ " Осталось найти различий: "+ gameController.getPointCounter;
+                gameController.getTime+ " Осталось найти различий: "+ gameController.getPointCounter
+                + " Счет: "+ gameController.getScore;
         }
 
         private void стартToolStripMenuItem_Click(object sender, EventArgs e)

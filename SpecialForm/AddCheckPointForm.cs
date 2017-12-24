@@ -47,9 +47,19 @@ namespace FindDifferences.SpecialForm
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            addLabel(rect);
+            int value = -1;
+            int.TryParse(textBox1.Text, out value);
 
-            this.Dispose();
+            if (value >= 0)
+            {
+                addLabel(rect,value);
+
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Неккоректное значение стоимости чекпоинта...");
+            }
         }
 
         /// <summary>

@@ -58,7 +58,7 @@ namespace FindDifferences.Data
             label.BackColor = System.Drawing.Color.Green;
             //System.Windows.Forms.MessageBox.Show("BRB");
             //changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
-            gameController.findDifference();
+            gameController.findDifference((int)label.Tag);
 
         }
 

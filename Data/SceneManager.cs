@@ -148,6 +148,7 @@ namespace FindDifferences.Data
                 label.Size = checkPoint.Size;
                 label.Name = checkPoint.NameComponent;
                 label.BackColor = System.Drawing.Color.Transparent;
+                label.Tag = checkPoint.getValue;
 
                 image.Controls.Add(label);
             }
@@ -179,7 +180,7 @@ namespace FindDifferences.Data
 
             foreach (System.Windows.Forms.Label label in changedImage.Controls)
             {
-                checkPoints.Add(new CheckPointInfo(label.Name,label.Location,label.Size));
+                checkPoints.Add(new CheckPointInfo(label.Name,label.Location,label.Size,(int)label.Tag));
             }
 
             return checkPoints.ToArray();

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FindDifferences.Data
 {
-    public delegate void AddLabelDelegate(Rectangle rect);
+    public delegate void AddLabelDelegate(Rectangle rect,int value);
 
     /// <summary>
     /// Вариант стратегии для менеджера...
@@ -131,7 +131,7 @@ namespace FindDifferences.Data
         /// Метод реализующий добавление построенного чекпоинта...
         /// </summary>
         /// <param name="rect"></param>
-        private void AddLabel(Rectangle rect)
+        private void AddLabel(Rectangle rect,int value)
         {
             Label label = new Label();
 
@@ -142,6 +142,7 @@ namespace FindDifferences.Data
             label.Size = rect.Size;
 
             label.Click += Label_Click;
+            label.Tag = value;
 
             AddComponent(label);
         }

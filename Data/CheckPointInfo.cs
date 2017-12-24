@@ -24,11 +24,15 @@ namespace FindDifferences.Data
         /// </summary>
         private string nameComponent;
 
-        public CheckPointInfo(string nameComponent,System.Drawing.Point location, System.Drawing.Size size)
+        private int value;
+
+        public CheckPointInfo(string nameComponent,System.Drawing.Point location, System.Drawing.Size size,
+            int value)
         {
             this.location = location;
             this.size = size;
             this.nameComponent = nameComponent;
+            this.value = value;
         }
 
         /// <summary>
@@ -45,5 +49,7 @@ namespace FindDifferences.Data
         /// Геттер на возврат имени чекпоинта...
         /// </summary>
         public string NameComponent { get { return nameComponent; } }
+
+        public int getValue { get { return value; } }
     }
 }

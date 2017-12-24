@@ -33,11 +33,13 @@ namespace FindDifferences.Data
             timer.Enabled = true;
         }
 
-        public int getPointCounter { get{ return point_counter; } }
+        public int getPointCounter { get { return point_counter; } }
 
-        public int getTime {
-            get {
-                time -=1;
+        public int getTime
+        {
+            get
+            {
+                time -= 1;
                 if (time > 0) return time;
                 else
                 {
@@ -48,14 +50,20 @@ namespace FindDifferences.Data
             }
         }
 
-        public void findDifference()
+        public void findDifference(int value)
         {
             point_counter--;
+            score += value;
             if (point_counter == 0)
             {
                 timer.Enabled = false;
                 timerOff();
             }
+        }
+
+        public int getScore
+        {
+            get { return score; }
         }
     }
 }
