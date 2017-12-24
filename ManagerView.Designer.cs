@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.режимToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.стартToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимМенеджераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сценаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,7 +38,6 @@
             this.сохранитьСценуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changedImage = new System.Windows.Forms.PictureBox();
             this.originalImage = new System.Windows.Forms.PictureBox();
-            this.стартToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
@@ -63,6 +63,13 @@
             this.режимToolStripMenuItem.Name = "режимToolStripMenuItem";
             this.режимToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.режимToolStripMenuItem.Text = "Режим";
+            // 
+            // стартToolStripMenuItem
+            // 
+            this.стартToolStripMenuItem.Name = "стартToolStripMenuItem";
+            this.стартToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.стартToolStripMenuItem.Text = "Старт";
+            this.стартToolStripMenuItem.Click += new System.EventHandler(this.стартToolStripMenuItem_Click_1);
             // 
             // режимИгрыToolStripMenuItem
             // 
@@ -121,13 +128,6 @@
             this.originalImage.TabIndex = 2;
             this.originalImage.TabStop = false;
             // 
-            // стартToolStripMenuItem
-            // 
-            this.стартToolStripMenuItem.Name = "стартToolStripMenuItem";
-            this.стартToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.стартToolStripMenuItem.Text = "Старт";
-            this.стартToolStripMenuItem.Click += new System.EventHandler(this.стартToolStripMenuItem_Click_1);
-            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +139,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManagerView";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.ManagerView_Activated);
             this.Load += new System.EventHandler(this.ManagerView_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -157,6 +157,9 @@ namespace FindDifferences
 
             originalImage.Enabled = false;
             changedImage.Enabled = false;
+
+            this.Activated += this.ManagerView_Activated;
+            this.Deactivate += this.ManagerView_Deactivate;
         }
 
         /// <summary>
@@ -180,6 +183,9 @@ namespace FindDifferences
 
             originalImage.Enabled = true;
             changedImage.Enabled = true;
+
+            this.Activated -= this.ManagerView_Activated;
+            this.Deactivate -= this.ManagerView_Deactivate;
         }
 
         /// <summary>
@@ -191,6 +197,9 @@ namespace FindDifferences
         {
             SpecialForm.LoadForm lf = new SpecialForm.LoadForm(new RecoverScene(recoverScene));
             lf.ShowDialog();
+
+            originalImage.Enabled = false;
+            changedImage.Enabled = false;
         }
 
         /// <summary>
@@ -233,6 +242,9 @@ namespace FindDifferences
                 ((GameStrategy)strategy).setGameController = gameController;
 
                 стартToolStripMenuItem.Enabled = false;
+
+                originalImage.Enabled = true;
+                changedImage.Enabled = true;
             }
             else
             {
@@ -243,6 +255,18 @@ namespace FindDifferences
         private void GameController_timerOff()
         {
             стартToolStripMenuItem.Enabled = true;
+        }
+
+        private void ManagerView_Activated(object sender, EventArgs e)
+        {
+            originalImage.Visible = true;
+            changedImage.Visible = true;
+        }
+
+        private void ManagerView_Deactivate(object sender, EventArgs e)
+        {
+            originalImage.Visible = false;
+            changedImage.Visible = false;
         }
     }
 }
