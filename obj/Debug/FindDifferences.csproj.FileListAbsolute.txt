@@ -26,3 +26,4 @@ D:\FindDifferences\obj\Debug\FindDifferences.SpecialForm.LoadForm.resources
 D:\FindDifferences\obj\Debug\FindDifferences.csproj.GenerateResource.Cache
 D:\FindDifferences\obj\Debug\FindDifferences.exe
 D:\FindDifferences\obj\Debug\FindDifferences.pdb
+D:\FindDifferences\obj\Debug\FindDifferences.SpecialForm.AddSceneForm.resources

@@ -16,12 +16,14 @@ namespace FindDifferences.Data
         /// </summary>
         private ImageInfo originalImage, changedImage;
 
-        private double bestScore=0;
+        private double bestScore = 0;
 
         /// <summary>
         /// Количество чекпоинтов в сцене...
         /// </summary>
         private readonly int point_count;
+
+        private int timeValue;
 
         /// <summary>
         /// 
@@ -29,10 +31,11 @@ namespace FindDifferences.Data
         /// <param name="originalImage">Сериализуемая версия originalImage...</param>
         /// <param name="changedImage">Сериализуема версия changedImage...</param>
         public SceneInfo(ImageInfo originalImage,
-            ImageInfo changedImage)
+            ImageInfo changedImage, int timeValue)
         {
             this.originalImage = originalImage;
             this.changedImage = changedImage;
+            this.timeValue = timeValue;
 
             this.point_count = changedImage.CheckPoints.Length;
         }
@@ -54,6 +57,8 @@ namespace FindDifferences.Data
 
         public double getBestScore { get { return bestScore; } }
 
-        public double setBestScore { set { bestScore=value; } }
+        public double setBestScore { set { bestScore = value; } }
+
+        public int getTimeValue { get { return timeValue; } }
     }
 }

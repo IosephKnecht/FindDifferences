@@ -209,14 +209,20 @@ namespace FindDifferences
         /// <param name="e"></param>
         private void сохранитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            sManager.SaveScene(originalImage, changedImage);
+            FindDifferences.SpecialForm.AddSceneForm addSceneForm = new SpecialForm.AddSceneForm();
+            addSceneForm.ShowDialog();
 
-            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-                new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            using (Stream fStream = new FileStream("user.dat",
-                 FileMode.Create, FileAccess.Write, FileShare.None))
+            if (addSceneForm != null)
             {
-                binFormat.Serialize(fStream, sManager);
+                sManager.SaveScene(originalImage, changedImage,addSceneForm.getTimeValue);
+
+                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                using (Stream fStream = new FileStream("user.dat",
+                     FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    binFormat.Serialize(fStream, sManager);
+                }
             }
         }
 

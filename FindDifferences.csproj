@@ -67,6 +67,12 @@
     <Compile Include="SpecialForm\AddCheckPointForm.Designer.cs">
       <DependentUpon>AddCheckPointForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpecialForm\AddSceneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecialForm\AddSceneForm.Designer.cs">
+      <DependentUpon>AddSceneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecialForm\LoadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="SpecialForm\AddCheckPointForm.resx">
       <DependentUpon>AddCheckPointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecialForm\AddSceneForm.resx">
+      <DependentUpon>AddSceneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecialForm\LoadForm.resx">
       <DependentUpon>LoadForm.cs</DependentUpon>

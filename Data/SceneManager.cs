@@ -86,7 +86,7 @@ namespace FindDifferences.Data
         /// оригинальное изображение...</param>
         /// <param name="changedImage">Изменненный pictureBox,хранящий изменное изображение...</param>
         public void SaveScene(System.Windows.Forms.PictureBox originalImage,
-            System.Windows.Forms.PictureBox changedImage)
+            System.Windows.Forms.PictureBox changedImage, int timeValue)
         {
             ImageInfo originalStruct = new ImageInfo(originalImage.Name,originalImage.Location,
                 originalImage.Size, originalImage.ImageLocation,ControlsToArray(originalImage),originalImage.BackColor);
@@ -94,7 +94,7 @@ namespace FindDifferences.Data
             ImageInfo changedStruct= new ImageInfo(changedImage.Name,changedImage.Location,
                 changedImage.Size, changedImage.ImageLocation, ControlsToArray(changedImage),changedImage.BackColor);
 
-            scenes.Add(new SceneInfo(originalStruct, changedStruct));
+            scenes.Add(new SceneInfo(originalStruct, changedStruct,timeValue));
         }
 
         /// <summary>

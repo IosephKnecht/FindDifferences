@@ -33,7 +33,7 @@ namespace FindDifferences.Data
         {
             timer = new Timer();
             timer.Tick += new EventHandler(new_tick);
-            this.time = 60;
+            this.time = SceneManager.Instance().getCurrentScene().getTimeValue;
             this.cnst = time;
             timer.Interval = 1000;
             point_counter = SceneManager.Instance().getCurrentScene().Point_Count;
