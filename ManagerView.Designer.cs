@@ -136,6 +136,7 @@
             this.Controls.Add(this.changedImage);
             this.Controls.Add(this.originalImage);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManagerView";
             this.Text = "Form1";

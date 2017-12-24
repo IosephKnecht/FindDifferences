@@ -82,6 +82,7 @@
             this.Controls.Add(this.changedImage);
             this.Controls.Add(this.originalImage);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoadForm";
             this.Text = "LoadForm";
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();

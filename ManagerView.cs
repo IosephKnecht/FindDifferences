@@ -288,6 +288,9 @@ namespace FindDifferences
                     MessageBox.Show("Возможно,для Вас это пока слишком сложная игра.");
                 }
             }
+
+            originalImage.Image = null;
+            changedImage.Image = null;
         }
 
         private void ManagerView_Activated(object sender, EventArgs e)
