@@ -120,6 +120,7 @@ namespace FindDifferences.Data
                 }
 
                 FindDifferences.SpecialForm.AddCheckPointForm addForm = new SpecialForm.AddCheckPointForm(new AddLabelDelegate(AddLabel), rect);
+                addForm.StartPosition = FormStartPosition.CenterScreen;
                 addForm.ShowDialog();
             }
 

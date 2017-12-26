@@ -168,6 +168,13 @@ namespace FindDifferences
 
             changedImage.Visible = false;
 
+            originalImage.Image = null;
+            changedImage.Image = null;
+
+            changedImage.Controls.Clear();
+
+            загрузитьСценуToolStripMenuItem.Enabled = true;
+
             this.Activated += this.ManagerView_Activated;
             this.Deactivate += this.ManagerView_Deactivate;
         }
@@ -194,7 +201,16 @@ namespace FindDifferences
             originalImage.Enabled = true;
             changedImage.Enabled = true;
 
+            originalImage.Image = null;
+            changedImage.Image = null;
+
+            changedImage.Controls.Clear();
+
             стартToolStripMenuItem.Enabled = false;
+
+            загрузитьСценуToolStripMenuItem.Enabled = false;
+
+            changedImage.Visible = true;
 
             this.Activated -= this.ManagerView_Activated;
             this.Deactivate -= this.ManagerView_Deactivate;
@@ -208,6 +224,7 @@ namespace FindDifferences
         private void загрузитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             SpecialForm.LoadForm lf = new SpecialForm.LoadForm(new RecoverScene(recoverScene));
+            lf.StartPosition = FormStartPosition.CenterScreen;
             lf.ShowDialog();
             lf.Dispose();
 
@@ -227,23 +244,35 @@ namespace FindDifferences
         private void сохранитьСценуToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             FindDifferences.SpecialForm.AddSceneForm addSceneForm = new SpecialForm.AddSceneForm();
+            addSceneForm.StartPosition = FormStartPosition.CenterScreen;
             addSceneForm.ShowDialog();
 
             if (addSceneForm != null)
             {
-                sManager.SaveScene(originalImage, changedImage,addSceneForm.getTimeValue);
-
-                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
-                    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                using (Stream fStream = new FileStream("user.dat",
-                     FileMode.Create, FileAccess.Write, FileShare.None))
+                if (changedImage.Controls.Count != 0)
                 {
-                    lock (sManager)
+                    sManager.SaveScene(originalImage, changedImage, addSceneForm.getTimeValue);
+
+                    System.Runtime.Serialization.Formatters.Binary.BinaryFormatter binFormat =
+                        new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    using (Stream fStream = new FileStream("user.dat",
+                         FileMode.Create, FileAccess.Write, FileShare.None))
                     {
-                        binFormat.Serialize(fStream, sManager);
+                        lock (sManager)
+                        {
+                            binFormat.Serialize(fStream, sManager);
+                        }
+                        fStream.Close();
                     }
-                    fStream.Close();
+
+                    originalImage.Image = null;
+                    changedImage.Image = null;
+                    changedImage.Controls.Clear();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Вы не отметили ни одного чекпоинта...");
             }
         }
 
