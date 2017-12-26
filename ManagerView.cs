@@ -304,5 +304,15 @@ namespace FindDifferences
             originalImage.Visible = false;
             changedImage.Visible = false;
         }
+
+        private void SizeChanged(object sender,EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+            int x = pictureBox.Location.X;
+            x += pictureBox.Size.Width + 10;
+            int y = originalImage.Location.Y;
+            changedImage.Location = new Point(x, y);
+            this.Size = new Size(2*pictureBox.Width+50, pictureBox.Height+100);
+        }
     }
 }
