@@ -81,7 +81,7 @@ namespace FindDifferences.SpecialForm
         {
             s_manager.recoverScene += new Action<object, object>(rec);
             s_manager.LoadScene(comboBox1.SelectedIndex);
-
+            s_manager.recoverScene -= new Action<object, object>(rec);
             this.Dispose();
         }
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace FindDifferences.Data
 {
@@ -15,7 +17,7 @@ namespace FindDifferences.Data
     {
         private double score;
 
-        private Timer timer;
+        private System.Windows.Forms.Timer timer;
 
         private int time;
 
@@ -31,7 +33,7 @@ namespace FindDifferences.Data
 
         public GameController(Tick new_tick)
         {
-            timer = new Timer();
+            timer = new System.Windows.Forms.Timer();
             timer.Tick += new EventHandler(new_tick);
             this.time = SceneManager.Instance().getCurrentScene().getTimeValue;
             this.cnst = time;
@@ -62,7 +64,11 @@ namespace FindDifferences.Data
 
         public void findDifference(int value)
         {
-            point_counter--;
+            lock ((object)point_counter)
+            {
+                point_counter--;
+                Thread.Sleep(100);
+            }
             score += value* time/(double)cnst;
             if (point_counter == 0)
             {

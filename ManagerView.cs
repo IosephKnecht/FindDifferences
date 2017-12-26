@@ -51,6 +51,9 @@ namespace FindDifferences
         /// <param name="changedImage">Востанновленное изменное изображение...</param>
         private void recoverScene(object originalImage, object changedImage)
         {
+            this.originalImage.Controls.Clear();
+            this.changedImage.Controls.Clear();
+
             this.Controls.Remove(this.originalImage);
             this.Controls.Remove(this.changedImage);
 
@@ -91,6 +94,7 @@ namespace FindDifferences
                 {
                     sManager = (SceneManager)binFormat.Deserialize(fStream);
                     SceneManager.SM(sManager);
+                    fStream.Close();
                 }
             }
             catch
@@ -205,6 +209,7 @@ namespace FindDifferences
         {
             SpecialForm.LoadForm lf = new SpecialForm.LoadForm(new RecoverScene(recoverScene));
             lf.ShowDialog();
+            lf.Dispose();
 
             MessageBox.Show("Сцена успешно загружена...");
 
@@ -233,7 +238,11 @@ namespace FindDifferences
                 using (Stream fStream = new FileStream("user.dat",
                      FileMode.Create, FileAccess.Write, FileShare.None))
                 {
-                    binFormat.Serialize(fStream, sManager);
+                    lock (sManager)
+                    {
+                        binFormat.Serialize(fStream, sManager);
+                    }
+                    fStream.Close();
                 }
             }
         }
@@ -245,7 +254,10 @@ namespace FindDifferences
             using (Stream fStream = new FileStream("user.dat",
                  FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                binFormat.Serialize(fStream, SceneManager.Instance());
+                lock (SceneManager.Instance())
+                {
+                    binFormat.Serialize(fStream, SceneManager.Instance());
+                }
             }
         }
 

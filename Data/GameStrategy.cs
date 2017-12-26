@@ -51,9 +51,8 @@ namespace FindDifferences.Data
         {
             Label label = (Label)sender;
 
-            System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
-            player.Open(new Uri(Directory.GetCurrentDirectory() + @"/Sounds" + @"/Click.wav"));
-            player.Play();
+            Thread thread = new Thread(PlaySound);
+            thread.Start();
 
             label.ForeColor = System.Drawing.Color.Red;
             label.BorderStyle = BorderStyle.FixedSingle;
@@ -67,6 +66,13 @@ namespace FindDifferences.Data
             //changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
             gameController.findDifference((int)label.Tag);
 
+        }
+
+        private void PlaySound()
+        {
+            System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
+            player.Open(new Uri(Directory.GetCurrentDirectory() + @"/Sounds" + @"/Click.wav"));
+            player.Play();
         }
 
         public void MouseDown(object sender, MouseEventArgs e)
