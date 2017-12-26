@@ -55,7 +55,14 @@ namespace FindDifferences.Data
             player.Open(new Uri(Directory.GetCurrentDirectory() + @"/Sounds" + @"/Click.wav"));
             player.Play();
 
-            label.BackColor = System.Drawing.Color.Green;
+            label.ForeColor = System.Drawing.Color.Red;
+            label.BorderStyle = BorderStyle.FixedSingle;
+            //label.Dock = DockStyle.Fill;
+
+            changedImage.BorderStyle = BorderStyle.None;
+            changedImage.Dock = DockStyle.None;
+
+            label.Click -= Label_Click;
             //System.Windows.Forms.MessageBox.Show("BRB");
             //changedImage.Controls.Remove((System.Windows.Forms.Label)sender);
             gameController.findDifference((int)label.Tag);

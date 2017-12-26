@@ -63,6 +63,8 @@ namespace FindDifferences
             this.Controls.Add((PictureBox)originalImage);
             this.Controls.Add((PictureBox)changedImage);
 
+            SizeChanged(originalImage, null);
+
             strategy.UpdateLinkChangedImage = this.changedImage;
         }
 
