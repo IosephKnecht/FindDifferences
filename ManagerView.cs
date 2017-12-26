@@ -329,6 +329,10 @@ namespace FindDifferences
 
         private void GameController_timerOff()
         {
+            this.Text = nameForm + " Осталось времени:" +
+                gameController.getTime + " Осталось найти различий: " + 0
+                + " Счет: " + gameController.getScore + " Рекорд: " + SceneManager.Instance().getCurrentScene().getBestScore;
+
             стартToolStripMenuItem.Enabled = true;
             if(gameController.getNewRecord&&gameController.getResultSession)
             {

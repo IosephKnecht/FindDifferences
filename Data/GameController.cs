@@ -64,12 +64,8 @@ namespace FindDifferences.Data
 
         public void findDifference(int value)
         {
-            lock ((object)point_counter)
-            {
-                point_counter--;
-                Thread.Sleep(100);
-            }
-            score += value* time/(double)cnst;
+            point_counter--;
+            score += Math.Round(value* time/(double)cnst,2);
             if (point_counter == 0)
             {
                 timer.Enabled = false;
