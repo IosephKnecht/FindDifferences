@@ -160,6 +160,10 @@ namespace FindDifferences
             originalImage.Enabled = false;
             changedImage.Enabled = false;
 
+            стартToolStripMenuItem.Enabled = true;
+
+            changedImage.Visible = false;
+
             this.Activated += this.ManagerView_Activated;
             this.Deactivate += this.ManagerView_Deactivate;
         }
@@ -186,6 +190,8 @@ namespace FindDifferences
             originalImage.Enabled = true;
             changedImage.Enabled = true;
 
+            стартToolStripMenuItem.Enabled = false;
+
             this.Activated -= this.ManagerView_Activated;
             this.Deactivate -= this.ManagerView_Deactivate;
         }
@@ -200,8 +206,12 @@ namespace FindDifferences
             SpecialForm.LoadForm lf = new SpecialForm.LoadForm(new RecoverScene(recoverScene));
             lf.ShowDialog();
 
+            MessageBox.Show("Сцена успешно загружена...");
+
             originalImage.Enabled = false;
             changedImage.Enabled = false;
+
+            changedImage.Visible = false;
         }
 
         /// <summary>
@@ -256,6 +266,8 @@ namespace FindDifferences
             if (SceneManager.Instance().Current_Scene >= 0&&
                 originalImage.Image!=null&&changedImage.Image!=null)
             {
+                changedImage.Visible = true;
+
                 gameController = new GameController(this.Tick);
                 gameController.timerOff += GameController_timerOff;
 
@@ -265,6 +277,8 @@ namespace FindDifferences
 
                 originalImage.Enabled = true;
                 changedImage.Enabled = true;
+
+                menuStrip1.Enabled = false;
             }
             else
             {
@@ -291,8 +305,12 @@ namespace FindDifferences
                 }
             }
 
+            menuStrip1.Enabled = true;
+
             originalImage.Image = null;
             changedImage.Image = null;
+
+            changedImage.Controls.Clear();
         }
 
         private void ManagerView_Activated(object sender, EventArgs e)
